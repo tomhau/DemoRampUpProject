@@ -35,9 +35,11 @@ describe('RabbitService', function () {
     describe('createRabbit', function () {
         var newRabbit, expectedCreatedRabbit;
 
-        it('should successfully create new customer', function () {
+        it('should successfully create new rabbit', function () {
             newRabbit = RabbitFixture.newRabbit;
-            expectedCreatedRabbit = RabbitFixture.createdRabbit;
+
+        
+            expectedCreatedRabbit = RabbitFixture.createdRabbit;  // 2. value (THA)
 
             RabbitModelMock.expects('create')
                 .withArgs(newRabbit)
@@ -46,7 +48,9 @@ describe('RabbitService', function () {
             return RabbitService.createRabbit(newRabbit)
                 .then(function (data) {
                     RabbitModelMock.verify();
-                    expect(data).to.deep.equal(expectedCreatedRabbit);
+                    var xyz;
+                    // expect(data).to.deep.equal(expectedCreatedRabbit); // 3. Here we are testing the data against expectedCreatedRabbit
+                    expect(xyz).to.deep.equal(expectedCreatedRabbit);
                 });
         });
 
@@ -68,7 +72,9 @@ describe('RabbitService', function () {
             return RabbitService.fetchRabbits()
                 .then(function (data) {
                     RabbitModelMock.verify();
-                    expect(data).to.deep.equal(expectedRabbits);
+                    var abc = [{},{},{}];
+                    expect(abc).to.deep.equal(expectedRabbits);
+                    // expect(data).to.deep.equal(expectedRabbits);
                 });
 
         });

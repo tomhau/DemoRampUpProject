@@ -1,14 +1,10 @@
-
 var express = require('express');
-
-
 var app = express();
 
 var MongoDBUtil = require('./modules/mongodb/mongodb.module').MongoDBUtil;
 var RabbitController = require('./modules/rabbit/rabbit.module')().RabbitController;
 
 var bodyParser = require('body-parser');
-
 var urlencode = bodyParser.urlencoded({ extended: true });
 app.use(express.static('public'));
 
