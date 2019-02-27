@@ -1,7 +1,7 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-var RabbitModule = require('../../../modules/rabbit/rabbit.module');
+var RabbitModule = require('../modules/rabbit/rabbit.module');
 
 describe('RabbitModule', function () {
 
@@ -29,7 +29,5 @@ describe('RabbitModule', function () {
         it('should confirm RabbitModel function exist', function () {
             expect(RabbitModule().RabbitModel).to.be.a('function');
         });
-
     });
-
 });

@@ -1,20 +1,16 @@
 'use strict';
-
 var chai = require('chai');
 var expect = chai.expect;
 var sinon = require('sinon');
 require('sinon-mongoose');
 
 var mongoose = require('mongoose');
-
-var RabbitModule = require('../../../modules/rabbit/rabbit.module')();
+var RabbitModule = require('../modules/rabbit/rabbit.module')();
 var RabbitModel = RabbitModule.RabbitModel;
 var RabbitService = RabbitModule.RabbitService;
 
-var Fixtures = require('../../fixtures/fixtures');
+var Fixtures = require('./fixtures/fixtures');
 var RabbitFixture = Fixtures.RabbitFixture;
-
-
 var RabbitModelMock;
 
 describe('RabbitService', function () {
@@ -25,10 +21,8 @@ describe('RabbitService', function () {
 
     afterEach(function () {
         RabbitModelMock.restore();
-
         mongoose.models = {};
         mongoose.modelSchemas = {};
-
         return mongoose.connection.close();
     });
 
@@ -37,8 +31,6 @@ describe('RabbitService', function () {
 
         it('should successfully create new rabbit', function () {
             newRabbit = RabbitFixture.newRabbit;
-
-        
             expectedCreatedRabbit = RabbitFixture.createdRabbit;  // 2. value (THA)
 
             RabbitModelMock.expects('create')
@@ -48,14 +40,9 @@ describe('RabbitService', function () {
             return RabbitService.createRabbit(newRabbit)
                 .then(function (data) {
                     RabbitModelMock.verify();
-                    var xyz;
-                    // expect(data).to.deep.equal(expectedCreatedRabbit); // 3. Here we are testing the data against expectedCreatedRabbit
-                    expect(xyz).to.deep.equal(expectedCreatedRabbit);
+                    expect(data).to.deep.equal(expectedCreatedRabbit); // 3. Here we are testing the data against expectedCreatedRabbit      
                 });
         });
-
-      
-
     });
 
     describe('fetchRabbits', function () {
@@ -72,14 +59,20 @@ describe('RabbitService', function () {
             return RabbitService.fetchRabbits()
                 .then(function (data) {
                     RabbitModelMock.verify();
-                    var abc = [{},{},{}];
-                    expect(abc).to.deep.equal(expectedRabbits);
-                    // expect(data).to.deep.equal(expectedRabbits);
+                    expect(data).to.deep.equal(expectedRabbits);
                 });
-
         });
-
-       
     });
 
+    
 });
+
+describe('RabbitmiddleWare', function () {
+    it('TODO: should successfully check parameters using spy, stub, mock', function () {
+        // TODO fail then success
+        
+    });
+});
+
+
+    

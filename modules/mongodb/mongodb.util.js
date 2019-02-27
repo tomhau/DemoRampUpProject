@@ -7,9 +7,7 @@
 
     var mongoose = require('mongoose');
 
-    // Simple version of connect! when is this invoked?
     function init() {
-        mongoose.connect('mongodb://localhost:27017/zooDB');    
+        mongoose.connect('mongodb://localhost:27017/zooDB',{ useNewUrlParser: true });   // UPDATED 
     }
-
 })();

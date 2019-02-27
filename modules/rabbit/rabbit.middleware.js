@@ -1,6 +1,5 @@
 (function () {
-    'use strict';
-    console.log('Immediate execution of rabbit middleware....');
+    'use strict';  
     module.exports = {
         addRabbit: addRabbit,
         getRabbits: getRabbits
@@ -39,7 +38,6 @@
         function failure(err) {
             next(err);
         }
-
     }
 
 })();

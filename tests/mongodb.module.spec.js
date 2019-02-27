@@ -1,7 +1,7 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-var MongoDBModule = require('../../../modules/mongodb/mongodb.module');
+var MongoDBModule = require('../modules/mongodb/mongodb.module'); // Update
 
 describe('MongoDBModule', function () {
 
@@ -15,5 +15,4 @@ describe('MongoDBModule', function () {
             expect(MongoDBModule.MongoDBUtil).to.be.a('object');
         });
     });
-
 });

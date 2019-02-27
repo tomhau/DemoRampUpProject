@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-    console.log('Immediate execution of rabbit controller....');
     var express = require('express');
     var router = express.Router();
 
@@ -10,6 +9,7 @@
     router.get('/',
         RabbitMiddleware.getRabbits,
         function (req, res) {
+            console.log("controller code, get All");
             res.status(200).json(req.response);
         });
 
@@ -19,9 +19,5 @@
         function (req, res) {
             res.status(201).json(req.response);
         });
-
- 
-
     module.exports = router;
-
 })();

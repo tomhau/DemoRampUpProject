@@ -1,6 +1,5 @@
 (function () {
-    'use strict';
-    console.log('Immediate execution of rabbit service....');
+    'use strict';   
     module.exports = {
         createRabbit: createRabbit,
         fetchRabbits: fetchRabbits
@@ -13,6 +12,7 @@
     }
 
     function fetchRabbits() {
+        console.log("service code, get All");
         return RabbitModel.find({})
             .exec();
     }
